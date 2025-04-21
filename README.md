@@ -1,19 +1,19 @@
-# 📈 stockexchange.back-end
+# 📈 stockexchange.front-end
 
-Este repositório contém um projeto de exemplo para uma aplicação **back-end** desenvolvida com **.NET Core**.
+Este repositório contém um projeto de exemplo para uma aplicação **front-end** desenvolvida com **Angular**.
 
 ---
 
 ## 🛠️ Ambiente de Desenvolvimento
 
-### 🔧 Ferramentas Utilizadas para o Back-end
+### 🔧 Ferramentas Utilizadas para o [Back-end](https://github.com/rodrigocdellu/stockexchange.back-end)
 
 - 🪟 **Sistema Operacional**: Windows 10 Pro  
 - ⚙️ **Framework**: .NET v8.0.408 (LTS)  
 - 📝 **Editor de Código**: Visual Studio Code v1.99.3  
 - 🐳 **Gerenciador de Contêineres**: Docker Desktop v4.40.0  
 
-### 🎨 Ferramentas Utilizadas para o Front-end
+### 🎨 Ferramentas Utilizadas para o [Front-end](https://github.com/rodrigocdellu/stockexchange.front-end)
 
 - 🐧 **Sistema Operacional**: Ubuntu 24.04 LTS  
 - 🌐 **Runtime JavaScript**: Node.js v22.14.0  
@@ -26,16 +26,16 @@ Este repositório contém um projeto de exemplo para uma aplicação **back-end*
 
 ### 💻 Ambiente de Desenvolvimento (Local)
 
-1. Certifique-se de que todas as ferramentas listadas no pacote de back-end estejam instaladas.
+1. Certifique-se de que todas as ferramentas listadas no pacote de front-end estejam instaladas.
 2. Navegue até o diretório do projeto desejado e execute o comando abaixo no **PowerShell (Windows)** ou no **Terminal (Linux)**:
 
 ```bash
-dotnet run
+npm install; ng serve
 ```
 
 3. Após a execução, acesse a aplicação através do seguinte endereço:
 
-[http://localhost:PORTA/swagger/index.html](http://localhost:PORTA/swagger/index.html)
+[http://localhost:4200/](http://localhost:4200/)
 
 ---
 
@@ -44,17 +44,17 @@ dotnet run
 1. Com o **Docker** devidamente instalado, execute o seguinte comando no diretório que contém o arquivo `Dockerfile`:
 
 ```bash
-docker build -t stockexchange.webapi .
+docker build -t stockexchange.angularui .
 ```
 
 2. Após a criação da imagem, inicie o contêiner com o comando:
 
 ```bash
-docker run -d -p 7200:80 stockexchange.webapi
+docker run -d -p 7200:80 stockexchange.angularui
 ```
 
 3. A aplicação poderá ser acessada em ambiente de produção pelo endereço:
-
+<DEFINIR>
 [http://localhost:7200/swagger/index.html](http://localhost:7200/swagger/index.html)
 
 ---
