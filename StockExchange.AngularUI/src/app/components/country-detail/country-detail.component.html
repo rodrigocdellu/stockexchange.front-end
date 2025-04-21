@@ -1,0 +1,16 @@
+<h2>Buscar País por ID</h2>
+<mat-form-field appearance="fill">
+    <mat-label>ID do País</mat-label>
+    <input matInput [(ngModel)]="id" type="number">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="fetchCountry()">Buscar</button>
+
+<div *ngIf="countryResult.length > 0">
+    <h3>Resultado:</h3>
+    <p><strong>{{ countryResult[0].name }}</strong> - Capital: {{ countryResult[0].capital }}</p>
+    <ul>
+        <li *ngFor="let currency of countryResult[0].currencies">
+            {{ currency.code }} - {{ currency.name }}
+        </li>
+    </ul>
+</div>
