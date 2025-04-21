@@ -5,7 +5,7 @@ EXPOSE 443
 
 ENV NODE_ENV=production
 
-COPY . .
+COPY StockExchange.AngularUI/. .
 RUN npm install --production --silent -g @angular/cli
 RUN npm install
 CMD ["ng", "serve", "--host", "0.0.0.0"]
