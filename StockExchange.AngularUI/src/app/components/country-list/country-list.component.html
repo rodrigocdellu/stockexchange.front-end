@@ -1,14 +1,34 @@
-<h2>Lista de Países</h2>
-<mat-list>
-    <mat-list-item *ngFor="let country of countries">
-        <div>
-            <strong>{{ country.name }}</strong> - Capital: {{ country.capital }}<br>
-            Moedas:
-            <ul>
-                <li *ngFor="let currency of country.currencies">
-                    {{ currency.code }} - {{ currency.name }}
-                </li>
-            </ul>
-        </div>
-    </mat-list-item>
-</mat-list>
+<div style="padding: 24px;">
+    <h2>Lista de Países</h2>
+
+    <table mat-table [dataSource]="countries" class="mat-elevation-z8" style="width: 100%;">
+        <!-- País -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> País </th>
+            <td mat-cell *matCellDef="let country"> {{ country.name }} </td>
+        </ng-container>
+
+        <!-- Capital -->
+        <ng-container matColumnDef="capital">
+            <th mat-header-cell *matHeaderCellDef> Capital </th>
+            <td mat-cell *matCellDef="let country"> {{ country.capital }} </td>
+        </ng-container>
+
+        <!-- Moedas -->
+        <ng-container matColumnDef="currencies">
+            <th mat-header-cell *matHeaderCellDef> Moedas </th>
+            <td mat-cell *matCellDef="let country">
+                <ul style="margin: 0; padding-left: 16px;">
+                    <li *ngFor="let currency of country.currencies">
+                        {{ currency.code }} - {{ currency.name }}
+                    </li>
+                </ul>
+            </td>
+        </ng-container>
+
+        <!-- Cabeçalho e linhas -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+</div>
