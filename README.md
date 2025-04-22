@@ -59,6 +59,12 @@ docker run --name stockexchange.angularui -d -p 7000:80 stockexchange.angularui
 
 ---
 
+4. Caso não consiga construir a imagem, pode baixá-la em:
+
+[https://hub.docker.com/r/rodrigocdellu/stockexchange.angularui](https://hub.docker.com/r/rodrigocdellu/stockexchange.angularui)
+
+---
+
 ## 🤝 Contribuições
 
 Contribuições são bem-vindas! Se você deseja sugerir melhorias, corrigir bugs ou adicionar novas funcionalidades, sinta-se à vontade para abrir uma [Issue](https://github.com/rodrigocdellu/stockexchange.front-end/issues) ou enviar um *Pull Request*.
