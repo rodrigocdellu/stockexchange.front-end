@@ -1,0 +1,31 @@
+<div class="card">
+    <h1>Bem-vindo(a) à Aplicação Angular CDB</h1>
+    <div class="internalCard">
+        <h2>Solicitar o Calculo do Investimento CDB</h2>
+        <form [formGroup]="solicitacaoForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Investimento</mat-label>
+                <input matInput type="text" formControlName="investimento">
+                <mat-error *ngIf="solicitacaoForm.get('investimento')?.hasError('Required')">O investimento é um campo
+                    obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Meses</mat-label>
+                <input matInput type="text" formControlName="meses">
+                <mat-error *ngIf="solicitacaoForm.get('meses')?.hasError('Required')">A quantidade de meses é um campo
+                    obrigatório</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Solicitar</button>
+        </form>
+    </div>
+    <div class="internalCard">
+        <h2>Resultado do Investimento CDB</h2>
+        <p><strong>Retorno Bruto</strong> {{ this.retorno.resultadoBruto | currency }}</p>
+        <p><strong>Retorno Líquido</strong> {{ this.retorno.resultadoLiquido | currency }}</p>
+    </div>
+    <p>
+        <a class="link" target="_blank" href="https://github.com/rodrigocdellu/stockexchange.front-end">Para <strong>Maiores Informações</strong> veja meu GitHub</a>
+    </p>
+</div>
