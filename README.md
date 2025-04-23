@@ -2,8 +2,6 @@
 
 Este repositório contém uma aplicação **front-end** desenvolvida em **Angular CLI** para o setor financeiro com o objetivo de aprender e exercitar novas tecnologias e conceitos.
 
----
-
 ## 🛠️ Ambiente de Desenvolvimento
 
 ### 🔧 Ferramentas Utilizadas
@@ -26,8 +24,6 @@ Este repositório contém uma aplicação **front-end** desenvolvida em **Angula
 - 📦 **Gerenciador de Pacotes**: [NPM v10.9.2](https://www.npmjs.com/package/npm/v/10.9.2)  
 - 🧰 **Framework Front-end**: [Angular CLI v19.2.8](https://github.com/angular/angular-cli)  
 
----
-
 ## 🚀 Ambientes de Execução
 
 ### 💻 Ambiente de Desenvolvimento (Local)
@@ -35,7 +31,7 @@ Este repositório contém uma aplicação **front-end** desenvolvida em **Angula
 1. Certifique-se de que todas as ferramentas listadas no pacote de front-end estejam instaladas.
 2. Navegue até o diretório do projeto desejado e execute o comando abaixo no **PowerShell (Windows)** ou no **Terminal (Linux)**:
 
-```bash
+```
 npm install; ng serve
 ```
 
@@ -43,19 +39,17 @@ npm install; ng serve
 
 [http://localhost:4200/](http://localhost:4200/)
 
----
-
 ### 📦 Ambiente de Produção (Docker)
 
 1. Com o **Docker** devidamente instalado, execute o seguinte comando no diretório que contém o arquivo `Dockerfile`:
 
-```bash
+```
 docker build -t stockexchange.angularui .
 ```
 
 2. Após a criação da imagem, inicie o contêiner com o comando:
 
-```bash
+```
 docker run --name stockexchange.angularui -d -p 7000:80 stockexchange.angularui
 ```
 
@@ -63,13 +57,9 @@ docker run --name stockexchange.angularui -d -p 7000:80 stockexchange.angularui
 
 [http://localhost:7000/](http://localhost:7000/)
 
----
-
 4. Caso não consiga construir a imagem, pode baixá-la em:
 
 [https://hub.docker.com/r/rodrigocdellu/stockexchange.angularui](https://hub.docker.com/r/rodrigocdellu/stockexchange.angularui)
-
----
 
 ## 💕 Clean Code
 
@@ -81,13 +71,9 @@ Contribuições são bem-vindas! Se você deseja sugerir melhorias, corrigir bug
 
 Por favor, siga as boas práticas de desenvolvimento e, se possível, adicione testes automatizados relacionados às suas alterações.
 
----
-
 ## 📄 Licença
 
 Este projeto está licenciado sob os termos da **MIT License**. Para mais informações, consulte o arquivo [`LICENSE`](./LICENSE.md).
-
----
 
 ## 📬 Contato
 
