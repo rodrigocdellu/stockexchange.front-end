@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'; // 2025/04/22
 import { MatInputModule } from '@angular/material/input'; // 2025/04/22 - For angular forms
 import { MatButtonModule } from '@angular/material/button'; // 2025/04/22 - For angular forms
 import { ReactiveFormsModule } from '@angular/forms'; // 2025/04/22 - For angular forms
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask'; // 2025/04/23 - For mask angular form fields
 
 import { SolicitacaoComponent } from './components/solicitacao/solicitacao.component';
 
@@ -28,13 +29,15 @@ registerLocaleData(ptBr);// 2025/04/22 - For application culture
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxMaskDirective,
+        NgxMaskPipe
     ],
     providers: [{
         provide: LOCALE_ID, useValue: 'pt' // 2025/04/22 - For application culture
     }, {
         provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' // 2025/04/22 - For application culture
-    }],
+    }, provideNgxMask()],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -56,6 +56,14 @@ strong {
     color: var(--secondary-red);
 }
 
+button {
+    margin-top: 40px;
+}
+
+.buttonSpace {
+    margin-right: 40px;
+}
+
 .internalCard {
     margin-bottom: 48px;
     padding-bottom: 29px;
