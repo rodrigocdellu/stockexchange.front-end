@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { CdbserviceService } from '../../services/cdbservice.service';
 import { Retorno } from '../../models/retorno.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-solicitacao',
@@ -15,10 +16,59 @@ export class SolicitacaoComponent {
     retorno: Retorno = {} as Retorno;
     validationMessage: string = "";
 
-    constructor(private formBuilder: FormBuilder, private cdbserviceService: CdbserviceService) {
+    constructor(private formBuilder: FormBuilder, private cdbserviceService: CdbserviceService, private snackBar: MatSnackBar) {
         this.solicitacaoForm = this.formBuilder.group({
             investimento: ['', [Validators.required, Validators.min(0.01)]], // Only values greater than 0.01
             meses: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1)]] // Only positive integers greater than 0
+        });
+    }
+
+    private validaEstrutura(): { investimento: number, meses: number } | null {
+        if (this.solicitacaoForm.valid) {
+            // Valida o parâmetro investimento
+            const investimentoFormatado = this.solicitacaoForm.get('investimento')?.value;
+    
+            const investimento = typeof investimentoFormatado === 'number'
+                ? investimentoFormatado
+                : parseFloat(
+                    investimentoFormatado
+                        .replace('R$', '')
+                        .replace(/\./g, '')
+                        .replace(',', '.')
+                        .trim()
+                );
+            
+            // Valida o parâmetro meses
+            const meses = this.solicitacaoForm.value["meses"];
+
+            // Retorna os parametros válidos
+            return { investimento, meses };
+        }
+    
+        // Retorna os parametros inválidos
+        return null;
+    }
+    
+    private solicitarCalculoInvestimento(investimento: number, meses: number): void {
+        this.cdbserviceService.solicitarCalculoInvestimento(investimento, meses).subscribe({
+            next: (res: Retorno) => {
+                this.retorno = res;
+    
+                this.snackBar.open('Investimento calculado com sucesso!', 'Fechar', {
+                    duration: 3000,
+                    panelClass: ['mat-primary'],
+                    horizontalPosition: 'center',
+                    verticalPosition: 'top',
+                });
+            },
+            error: (err) => {
+                this.snackBar.open(err.message, 'Fechar', {
+                    duration: 5000,
+                    panelClass: ['mat-warn'],
+                    horizontalPosition: 'center',
+                    verticalPosition: 'top',
+                });
+            }
         });
     }
 
@@ -40,31 +90,14 @@ export class SolicitacaoComponent {
     }
 
     onSubmit() {
-        // For debug
-        //console.log(this.solicitacaoForm.value);
+        // Valida os dados de entrada
+        const dados = this.validaEstrutura();
 
-        if (this.solicitacaoForm.valid) {
-            const investimentoFormatado = this.solicitacaoForm.get('investimento')?.value;
-
-            // If it is already a number (in the case of ngx-mask), use it directly:
-            const investimento = typeof investimentoFormatado === 'number'
-                ? investimentoFormatado
-                : parseFloat(
-                    investimentoFormatado
-                        .replace('R$', '')
-                        .replace(/\./g, '')
-                        .replace(',', '.')
-                        .trim()
-                );
-
-            // For Debug
-            //console.log('Valor numérico:', valorNumerico);
-
-            var meses = this.solicitacaoForm.value["meses"];
-
-            this.cdbserviceService.solicitarCalculoInvestimento(investimento, meses).subscribe(retorno => {
-                this.retorno = retorno;
-            });
+        // Se válidos
+        if (dados) {
+            
+            // Realiza a requisição
+            this.solicitarCalculoInvestimento(dados.investimento, dados.meses);
         }
-    }
+    }    
 }

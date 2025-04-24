@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { MatFormFieldModule } from '@angular/material/form-field'; // 2025/04/22 - For angular forms
 import { MatInputModule } from '@angular/material/input'; // 2025/04/22 - For angular forms
 import { MatButtonModule } from '@angular/material/button'; // 2025/04/22 - For angular forms
+import { MatSnackBarModule } from '@angular/material/snack-bar'; // 2025/04/24 - For angular messages
 import { ReactiveFormsModule } from '@angular/forms'; // 2025/04/22 - For angular forms
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask'; // 2025/04/23 - For mask angular form fields
 
@@ -29,6 +30,7 @@ registerLocaleData(ptBr);// 2025/04/22 - For application culture
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
+        MatSnackBarModule,
         ReactiveFormsModule,
         NgxMaskDirective,
         NgxMaskPipe

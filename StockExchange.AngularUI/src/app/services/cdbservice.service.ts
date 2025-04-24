@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators'; // 2025/04/24 - To handle errors
+
 import { Retorno } from '../models/retorno.model';
 
 @Injectable({
@@ -20,8 +22,17 @@ export class CdbserviceService {
         var action = "SolicitarCalculoInvestimento";
 
         // Set the service url
-        var url = `${this.baseURL}:${this.port}/${this.controller}/${action}/${action}?investimento=${investimento}&meses=${meses}`
+        var url = `${this.baseURL}:${this.port}/${this.controller}/${action}/${action}?investimento=${investimento}&meses=${meses}`;
 
-        return this.http.get<Retorno>(url);
+        // Do the request
+        return this.http.get<Retorno>(url).pipe(
+            catchError((error: HttpErrorResponse) => {
+                console.error("Erro na requisição:", error.message);
+                console.error("Status:", error.status);
+                console.error("Detalhes:", error.error); // Back-end may send messages here
+
+                return throwError(() => new Error('Erro ao solicitarCalculoInvestimento'));
+            })
+        );
     }
 }
