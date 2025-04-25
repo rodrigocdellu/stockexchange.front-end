@@ -10,9 +10,9 @@ import { Retorno } from '../models/retorno.model';
 })
 export class CdbserviceService {
     // Sample URL"http://localhost:5041/CDB/SolicitarCalculoInvestimento/SolicitarCalculoInvestimento?investimento=1&meses=2"
-    private baseURL = "http://localhost";
-    private port = "5041" // change to 7200 to dockerize or 5041 to localhost
-    private controller = "CDB";
+    private readonly baseURL = "http://localhost";
+    private readonly port = "5041" // change to 7200 to dockerize or 5041 to localhost
+    private readonly controller = "Cdb";
 
     constructor(private http: HttpClient) {
     }
