@@ -16,7 +16,7 @@ export class SolicitacaoComponent {
     retorno: Retorno = {} as Retorno;
     validationMessage: string = "";
 
-    constructor(private formBuilder: FormBuilder, private cdbserviceService: CdbserviceService, private snackBar: MatSnackBar) {
+    constructor(private readonly formBuilder: FormBuilder, private readonly cdbserviceService: CdbserviceService, private readonly snackBar: MatSnackBar) {
         this.solicitacaoForm = this.formBuilder.group({
             investimento: ['', [Validators.required, Validators.min(0.01)]], // Only values greater than 0.01
             meses: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1)]] // Only positive integers greater than 0
