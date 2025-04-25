@@ -9,12 +9,12 @@ import { Retorno } from '../models/retorno.model';
     providedIn: 'root'
 })
 export class CdbserviceService {
-    // Sample URL"http://localhost:5041/CDB/SolicitarCalculoInvestimento/SolicitarCalculoInvestimento?investimento=1&meses=2"
+    // Sample URL"http://localhost:5041/Cdb/SolicitarCalculoInvestimento/SolicitarCalculoInvestimento?investimento=1&meses=2"
     private readonly baseURL = "http://localhost";
     private readonly port = "5041" // change to 7200 to dockerize or 5041 to localhost
     private readonly controller = "Cdb";
 
-    constructor(private http: HttpClient) {
+    constructor(private readonly http: HttpClient) {
     }
 
     solicitarCalculoInvestimento(investimento: number, meses: number): Observable<Retorno> {
