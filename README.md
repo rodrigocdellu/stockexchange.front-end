@@ -31,8 +31,10 @@ Este repositório contém uma aplicação **front-end** desenvolvida em **Angula
 
 ### 💻 Ambiente de Desenvolvimento (Local)
 
-1. Certifique-se de que todas as ferramentas listadas no pacote de front-end estejam instaladas.
-2. Navegue até o diretório do projeto desejado e execute o comando abaixo no **PowerShell (Windows)** ou no **Terminal (Linux)**:
+1. Siga os passos presentes no [stockexchange.back-end](https://github.com/rodrigocdellu/stockexchange.back-end) para subir a aplicação **StockExchange.WebAPI**.
+
+
+2. Certifique-se de que todas as ferramentas e pacotes utilizados estejam instaladas e funcionando. Os comandos a seguir podem ser executados no **PowerShell (Windows)** ou no **Terminal (Linux)**:
 
 ```
 git clone git@github.com:rodrigocdellu/stockexchange.front-end.git;
@@ -43,6 +45,8 @@ npm install; ng serve
 3. Após a execução, acesse a aplicação através do seguinte endereço:
 
 [http://localhost:4200/](http://localhost:4200/)
+
+**IMPORTANTE**: Para uma melhor experiência, verifique se a aplicação **StockExchange.WebAPI** presente em [stockexchange.back-end](https://github.com/rodrigocdellu/stockexchange.back-end) está em execução. Assim você poderá verificar a comunicação front-end (Angular CLI) e back-end (.NET Core).
 
 ### 📦 Ambiente de Produção (Docker)
 
@@ -58,7 +62,7 @@ docker build -t stockexchange.angularui .
 docker run --name stockexchange.angularui -d -p 7000:80 stockexchange.angularui
 ```
 
-3. A aplicação poderá ser acessada em ambiente de produção pelo endereço:
+3. A aplicação **StockExchange.AngularUI** poderá ser acessada em ambiente de produção pelo endereço:
 
 [http://localhost:7000/](http://localhost:7000/)
 
