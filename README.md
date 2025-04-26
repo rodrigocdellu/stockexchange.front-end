@@ -88,9 +88,9 @@ docker run --name stockexchange.angularui -d -p 7000:80 stockexchange.angularui
 
 4. Caso não consiga construir a imagem, você pode baixá-la do meu Docker Hub:
 
-- [Front-end Angular]([http://localhost:7000](https://hub.docker.com/r/rodrigocdellu/stockexchange.angularui))
+- [Front-end Angular](https://hub.docker.com/r/rodrigocdellu/stockexchange.angularui)
 
-## 💕 Clean Code
+## ❤ Clean Code
 
 Aqui disponibilizo os [resultados da analise estática de cógido](https://sonarcloud.io/project/overview?id=rodrigocdellu_stockexchange-front-end) com as configurações padrão do SonarQube Cloud.
 
