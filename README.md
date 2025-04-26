@@ -1,4 +1,4 @@
-# 📈 StockExchange
+# 📈 StockExchange.Front-end
 
 Aplicativo financeiro criado para avaliar conceitos de .NET Core (C#) e Angular (Typescript).
 Este repositório contém uma aplicação **front-end** desenvolvida em **Angular** para o setor financeiro com o objetivo de aprender e exercitar novas tecnologias e conceitos.
