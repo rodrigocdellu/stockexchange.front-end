@@ -60,7 +60,7 @@ cd stockexchange-front-end/StockExchange.AngularUI/; npm install; ng serve
 Certifique-se de que todas as ferramentas e pacotes utilizados estejam instaladas e funcionando.
 Antes de executar, verifique se a porta 4200 está disponível.
 Os comandos a seguir podem ser executados no **PowerShell (Windows)** ou no **Terminal (Linux)**.
-Se quiser, mude o parametro 'porta' de 5041 para 7200 do cdbservice.service.ts. Isso alinha a porta do serviço a ser consumido.
+Se quiser, mude o parametro 'porta' de 5041 para 7200 do [`cdbservice.service.ts`](./stockexchange/StockExchange.AngularUI/src/app/services/cdbservice.service.ts) do Front-end Angular. Isso alinha a porta do serviço a ser consumido.
 
 1. Com os repositório já baixados, execute os seguintes comandos para desenvolver o Front-end Angular:
 
